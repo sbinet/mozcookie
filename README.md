@@ -2,6 +2,8 @@
 
 [![GitHub release](https://img.shields.io/github/release/sbinet/mozcookie.svg)](https://github.com/sbinet/mozcookie/releases)
 [![GoDoc](https://pkg.go.dev/badge/github.com/sbinet/mozcookie?status.svg)](https://pkg.go.dev/github.com/sbinet/mozcookie)
+[![CI](https://github.com/sbinet/mozcookie/workflows/CI/badge.svg)](https://github.com/sbinet/mozcookie/actions)
+[![codecov](https://codecov.io/gh/sbinet/mozcookie/branch/main/graph/badge.svg)](https://codecov.io/gh/sbinet/mozcookie)
 [![License](https://img.shields.io/badge/License-BSD--3-blue.svg)](https://github.com/sbinet/mozcookie/blob/main/LICENSE)
 
 `mozcookie` is a simple package providing tools to read and write cookies from and to files in the Netscape HTTP Cookie File format.
