@@ -1,5 +1,7 @@
 # mozcookie
 
+[![GoDoc](https://pkg.go.dev/badge/github.com/sbinet/mozcookie?status.svg)](https://pkg.go.dev/github.com/sbinet/mozcookie)
+
 `mozcookie` is a simple package providing tools to read and write cookies from and to files in the Netscape HTTP Cookie File format.
 
 For more informations about this format, see:
