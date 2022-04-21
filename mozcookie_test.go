@@ -72,7 +72,7 @@ func TestRoundTrip(t *testing.T) {
 		t.Fatalf("could not decode cookies: %+v", err)
 	}
 
-	if !bytes.Equal(wbuf.Bytes(), rbuf.Bytes()) {
+	if !bytes.Equal(dos2unix(wbuf.Bytes()), dos2unix(rbuf.Bytes())) {
 		t.Fatalf("round-trip failed")
 	}
 }
@@ -94,7 +94,7 @@ func TestRead(t *testing.T) {
 		t.Fatalf("could not read golden file: %+v", err)
 	}
 
-	if !bytes.Equal(wbuf.Bytes(), want) {
+	if !bytes.Equal(dos2unix(wbuf.Bytes()), dos2unix(want)) {
 		t.Fatalf("round-trip failed")
 	}
 }
@@ -123,7 +123,11 @@ func TestWrite(t *testing.T) {
 		t.Fatalf("could not read golden file: %+v", err)
 	}
 
-	if !bytes.Equal(got, want) {
+	if !bytes.Equal(dos2unix(got), dos2unix(want)) {
 		t.Fatalf("round-trip failed:\ngot:\n%s\n\nwant:\n%s\n", got, want)
 	}
+}
+
+func dos2unix(b []byte) []byte {
+	return bytes.Replace(b, []byte("\r\n"), []byte("\n"), -1)
 }
