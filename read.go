@@ -113,13 +113,25 @@ func decode(r io.Reader) ([]*http.Cookie, error) {
 
 		toks := strings.Split(txt, "\t")
 
-		c.Domain = strings.ToLower(toks[0])
+		if len(toks) > 0 {
+			c.Domain = strings.ToLower(toks[0])
+		}
 		// domain-specified: toks[1] == "TRUE"
-		c.Path = toks[2]
-		c.Secure = toks[3] == "TRUE"
-		c.RawExpires = toks[4]
-		c.Name = toks[5]
-		c.Value = toks[6]
+		if len(toks) > 2 {
+			c.Path = toks[2]
+		}
+		if len(toks) > 3 {
+			c.Secure = toks[3] == "TRUE"
+		}
+		if len(toks) > 4 {
+			c.RawExpires = toks[4]
+		}
+		if len(toks) > 5 {
+			c.Name = toks[5]
+		}
+		if len(toks) > 6 {
+			c.Value = toks[6]
+		}
 
 		if c.RawExpires != "" {
 			v, err := strconv.ParseInt(c.RawExpires, 10, 64)
